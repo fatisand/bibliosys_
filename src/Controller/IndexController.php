@@ -11,6 +11,7 @@ class IndexController extends AbstractController
     #[Route('/', name: 'app_index')]
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('index/index.html.twig', [
             'controller_name' => 'IndexController',
         ]);
