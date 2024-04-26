@@ -1,3 +1,23 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+    
+prestamo:
+    path: /prestamo
+    controller: App\Controller\PrestamoController::index
+
+cliente:
+    path: /cliente
+    controller: App\Controller\ClienteController::index
+
+libro:
+    path: /libro
+    controller: App\Controller\LibroController::index
+
+autor:
+    path: /autor
+    controller: App\Controller\AutorController::index
+
+editorial:
+    path: /editorial
+    controller: App\Controller\EditorialController::index
