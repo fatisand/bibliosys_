@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registrar Libro{% endblock %}
+
+{% block body %}
+    <h1>Registrar Libro</h1>
+
+    {{ include('libro/_form.html.twig') }}
+
+    <a href="{{ path('app_libro_index') }}">volver a la lista</a>
+{% endblock %}

@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_prestamo_delete', {'id': prestamo.id}) }}" onsubmit="return confirm('Estas Seguro que el prestamo ha sido devuelto?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ prestamo.id) }}">
+    <button class="btn btn-lg btn-danger">Eliminar</button>
+</form>
