@@ -17,6 +17,7 @@ class EditorialController extends AbstractController
     #[Route('/', name: 'app_editorial_index', methods: ['GET'])]
     public function index(EditorialRepository $editorialRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('editorial/index.html.twig', [
             'editorials' => $editorialRepository->findAll(),
         ]);

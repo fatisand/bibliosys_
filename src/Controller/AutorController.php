@@ -17,6 +17,7 @@ class AutorController extends AbstractController
     #[Route('/', name: 'app_autor_index', methods: ['GET'])]
     public function index(AutorRepository $autorRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('autor/index.html.twig', [
             'autors' => $autorRepository->findAll(),
         ]);

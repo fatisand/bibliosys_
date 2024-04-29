@@ -17,6 +17,7 @@ class ClienteController extends AbstractController
     #[Route('/', name: 'app_cliente_index', methods: ['GET'])]
     public function index(ClienteRepository $clienteRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('cliente/index.html.twig', [
             'clientes' => $clienteRepository->findAll(),
         ]);

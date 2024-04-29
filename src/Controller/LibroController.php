@@ -17,6 +17,7 @@ class LibroController extends AbstractController
     #[Route('/', name: 'app_libro_index', methods: ['GET'])]
     public function index(LibroRepository $libroRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('libro/index.html.twig', [
             'libros' => $libroRepository->findAll(),
         ]);

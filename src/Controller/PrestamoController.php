@@ -17,6 +17,7 @@ class PrestamoController extends AbstractController
     #[Route('/', name: 'app_prestamo_index', methods: ['GET'])]
     public function index(PrestamoRepository $prestamoRepository): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('prestamo/index.html.twig', [
             'prestamos' => $prestamoRepository->findAll(),
         ]);
