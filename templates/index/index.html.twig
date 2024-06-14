@@ -4,6 +4,12 @@
 
 {% block body %}
 <style>
+        html, body {
+            height: 100%; /* Establecer altura al 100% */
+            margin: 0; /* Eliminar márgenes para evitar espacios */
+            display: flex;
+            flex-direction: column;
+        }
     .example-wrapper {
         margin: 1em auto;
         max-width: 900px;
@@ -20,6 +26,14 @@
         font: 20px/2 sans-serif;
         text-align: center;
     }
+    .card {
+        height: 15rem; /* Ajusta esta altura según tus necesidades */
+        border-radius: 2rem; /* Añade más borde redondeado */
+    }
+    .img-recursos{
+        width: 10vh;
+        height: 10vh;
+    }
     .title {
         text-align: center;
         margin-bottom: 2em;
@@ -27,40 +41,51 @@
     .row {
         margin-bottom: 2em;
     }
+    .btn{
+        border-radius: 1rem; /* Añade más borde redondeado */
+    }
+     footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f8f9fa; /* Color de fondo del footer */
+            width: 100%;
+        }
 </style>
 
-
 <div class="container">
-    <div class="title">
+    <div class="title mt-5">
         <h1>Hola Bibliotecario</h1>
         <h2>Realiza tus gestiones ahora!</h2>
 
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-4">
+        <div class="col-md-4 ">
             <div class="example-wrapper">
                 <div class="card" style="width: 25rem;">
                 <div class="card-body">
+                    <img class="img-recursos" src="{{ asset('recursos/icono-prestamo.svg') }}">
                     <h3 class="card-title">Prestamo</h3>
                     <a href="{{ path('app_prestamo_index') }}" class="btn btn-outline-primary">Ver</a>
                 </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4  ">
             <div class="example-wrapper">
                 <div class="card" style="width: 25rem;">
                 <div class="card-body">
+                    <img class="img-recursos" src="{{ asset('recursos/icono-libro.svg') }}">
                     <h3 class="card-title">Libro</h3>
                     <a href="{{ path('app_libro_index') }}" class="btn btn-outline-primary">Ver</a>
                 </div>
                 </div>
             </div>
         </div>
-       <div class="col-md-4">
+       <div class="col-md-4  ">
             <div class="example-wrapper">
                 <div class="card" style="width: 25rem;">
                 <div class="card-body">
+                <img class="img-recursos" src="{{ asset('recursos/icon-cliente.svg') }}">
                     <h3 class="card-title">Cliente</h3>
                     <a href="{{ path('app_cliente_index') }}" class="btn btn-outline-primary">Ver</a>
                 </div>
@@ -72,6 +97,7 @@
             <div class="example-wrapper">
                 <div class="card" style="width: 25rem;">
                 <div class="card-body">
+                    <img class="img-recursos" src="{{ asset('recursos/icon-editorial.svg') }}">
                     <h3 class="card-title">Editorial</h3>
                     <a href="{{ path('app_editorial_index') }}" class="btn btn-outline-primary">Ver</a>
                 </div>
@@ -82,6 +108,7 @@
             <div class="example-wrapper">
                 <div class="card" style="width: 25rem;">
                 <div class="card-body">
+                <img class="img-recursos" src="{{ asset('recursos/icon-autor.svg') }}">
                     <h3 class="card-title">Autor</h3>
                     <a href="{{ path('app_autor_index') }}" class="btn btn-outline-primary">Ver</a>
                 </div>
@@ -90,4 +117,5 @@
         </div>
     </div>
 </div>
+<footer>Todos los derechos reservados ©</footer>
 {% endblock %}
