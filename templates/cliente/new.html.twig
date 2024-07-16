@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Cliente{% endblock %}
+{% block title %}Registrar Cliente{% endblock %}
 
 {% block body %}
-    <h1>Registrar Cliente</h1>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="display-4">Registrar Cliente</h1>
+        </div>
 
-    {{ include('cliente/_form.html.twig') }}
+        <div class="card shadow-lg mb-4">
+            <div class="card-body">
+                {{ include('cliente/_form.html.twig', {'button_label': 'Guardar'}) }}
+            </div>
+        </div>
 
-    <a href="{{ path('app_cliente_index') }}">volver a la lista</a>
+        <div class="mt-4">
+            <a href="{{ path('app_cliente_index') }}" class="btn btn-secondary btn-lg">Volver a la lista</a>
+        </div>
+    </div>
 {% endblock %}

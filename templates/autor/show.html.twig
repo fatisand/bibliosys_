@@ -3,24 +3,36 @@
 {% block title %}Autor{% endblock %}
 
 {% block body %}
-    <h1>Autor</h1>
+    <div class="container mt-5">
+        <h1 class="mb-4">Autor</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ autor.id }}</td>
-            </tr>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ autor.nombre }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="card">
+            <div class="card-header">
+                Detalles del Autor
+            </div>
+            <div class="card-body">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Id</th>
+                            <td>{{ autor.id }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nombre</th>
+                            <td>{{ autor.nombre }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <a href="{{ path('app_autor_index') }}">volver a la lista</a>
+        <div class="mt-4 d-flex justify-content-between">
+            <a href="{{ path('app_autor_index') }}" class="btn btn-secondary">Volver a la lista</a>
+            <a href="{{ path('app_autor_edit', {'id': autor.id}) }}" class="btn btn-primary">Modificar</a>
+        </div>
 
-    <a href="{{ path('app_autor_edit', {'id': autor.id}) }}">modificar</a>
-
-    {{ include('autor/_delete_form.html.twig') }}
+        <div class="btn btn-danger mt-4">
+            {{ include('autor/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

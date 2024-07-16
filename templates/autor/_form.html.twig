@@ -1,4 +1,11 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Guardar') }}</button>
+{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+    <div class="form-group mb-3">
+        {{ form_label(form.nombre, null, {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.nombre, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.nombre) }}
+    </div>
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary btn-lg">{{ button_label|default('Guardar') }}</button>
+        <a href="{{ path('app_autor_index') }}" class="btn btn-secondary btn-lg">Cancelar</a>
+    </div>
 {{ form_end(form) }}

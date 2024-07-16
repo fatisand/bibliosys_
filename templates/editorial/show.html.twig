@@ -3,28 +3,38 @@
 {% block title %}Editorial{% endblock %}
 
 {% block body %}
-    <h1>Editorial</h1>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="display-4">Detalles de Editorial</h1>
+        </div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ editorial.id }}</td>
-            </tr>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ editorial.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Direccion</th>
-                <td>{{ editorial.direccion }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="card shadow-lg mb-4">
+            <div class="card-body">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Id</th>
+                            <td>{{ editorial.id }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nombre</th>
+                            <td>{{ editorial.nombre }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Dirección</th>
+                            <td>{{ editorial.direccion }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <a href="{{ path('app_editorial_index') }}">volver a la lista</a>
-
-    <a href="{{ path('app_editorial_edit', {'id': editorial.id}) }}">Modificar</a>
-
-    {{ include('editorial/_delete_form.html.twig') }}
+        <div class="mt-4">
+            <a href="{{ path('app_editorial_index') }}" class="btn btn-secondary btn-lg">Volver a la lista</a>
+            <a href="{{ path('app_editorial_edit', {'id': editorial.id}) }}" class="btn btn-warning btn-lg">Modificar</a>
+        </div>
+        <div class="btn btn-danger mt-2">
+        {{ include('editorial/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

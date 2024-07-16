@@ -3,39 +3,48 @@
 {% block title %}Libro{% endblock %}
 
 {% block body %}
-    <h1>Libro</h1>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="display-4">Listado de Libros</h1>
+        </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Genero</th>
-                <th>Autor</th>
-                <th>acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for libro in libros %}
-            <tr>
-                <td>{{ libro.id }}</td>
-                <td>{{ libro.nombre }}</td>
-                <td>{{ libro.genero }}</td>
-                <td>{{ libro.autorNombre }}</td>
-                
-                <td>
-                    <a href="{{ path('app_libro_show', {'id': libro.id}) }}">mostrar</a>
-                    <a href="{{ path('app_libro_edit', {'id': libro.id}) }}">modificar</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <div class="card shadow-lg mb-4">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Género</th>
+                            <th scope="col">Autor</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for libro in libros %}
+                        <tr>
+                            <td>{{ libro.id }}</td>
+                            <td>{{ libro.nombre }}</td>
+                            <td>{{ libro.genero }}</td>
+                            <td>{{ libro.autorNombre }}</td>
+                            <td>
+                                <a href="{{ path('app_libro_show', {'id': libro.id}) }}" class="btn btn-info btn-sm">Mostrar</a>
+                                <a href="{{ path('app_libro_edit', {'id': libro.id}) }}" class="btn btn-warning btn-sm">Modificar</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center">No se encontraron registros</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <a href="{{ path('app_libro_new') }}">Registrar</a></br>
-    <a href="{{ path('app_index') }}">Volver al Inicio</a>
+        <div class="mt-4">
+            <a href="{{ path('app_libro_new') }}" class="btn btn-success btn-lg">Registrar Nuevo Libro</a>
+            <a href="{{ path('app_index') }}" class="btn btn-secondary btn-lg">Volver al Inicio</a>
+        </div>
+    </div>
 {% endblock %}
